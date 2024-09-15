@@ -1,3 +1,10 @@
-<h1 class="text-3xl font-bold text-blue-500 underline">
-  Hello world!
-</h1>
+<ng-container *transloco="let t">
+  <h1 class="text-3xl font-bold text-blue-500 underline">
+    {{ t("hello") }}
+  </h1>
+  <select name="lang" id="lang" (change)="changeLang($event)">
+    <option value="es">🇪🇸 Español</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</ng-container>
+
