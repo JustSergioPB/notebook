@@ -9,6 +9,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { TranslocoHttpLoader } from '@i18n/vendor/transloco-loader';
 import { AvailableLangs, provideTransloco } from '@jsverse/transloco';
 import { DEFAULT_LANG, SUPPORTED_LANGS } from '@i18n/model/langs.const';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +25,10 @@ export const appConfig: ApplicationConfig = {
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
+    }),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
 };

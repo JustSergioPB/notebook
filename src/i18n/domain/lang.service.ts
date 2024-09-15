@@ -6,7 +6,7 @@ import { TranslocoService } from '@jsverse/transloco';
   providedIn: 'root',
 })
 export class LangService {
-  translocoService = inject(TranslocoService);
+  private _translocoService = inject(TranslocoService);
   private _lang = signal<SupportedLangs>(DEFAULT_LANG);
   lang = this._lang.asReadonly();
 
@@ -16,13 +16,13 @@ export class LangService {
   }
 
   setActiveLang(lang: SupportedLangs) {
-    this.translocoService.setActiveLang(lang);
+    this._translocoService.setActiveLang(lang);
     this._lang.set(lang);
     localStorage.setItem('lang', lang);
   }
 
   private _getLang(): SupportedLangs {
     return (localStorage.getItem('lang') ??
-      this.translocoService.getActiveLang()) as SupportedLangs;
+      this._translocoService.getActiveLang()) as SupportedLangs;
   }
 }

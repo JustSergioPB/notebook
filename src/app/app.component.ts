@@ -5,6 +5,7 @@ import { Theme } from '@theme/model/theme';
 import { ThemeService } from '@theme/domain/theme.service';
 import { LangService } from '@i18n/domain/lang.service';
 import { SupportedLangs } from '@i18n/model/langs.const';
+import { OfflineService } from '@offline/domain/offline.service';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,13 @@ export class AppComponent {
   title = 'notebook';
   langService = inject(LangService);
   themeService = inject(ThemeService);
-
+  offlineService = inject(OfflineService);
+  
   theme = this.themeService.theme;
   lang = this.langService.lang;
-
+  swEnabled = this.offlineService.swEnabled;
+  online = this.offlineService.online;
+  
   changeLang(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const selectedLang = selectElement.value;

@@ -22,7 +22,8 @@
     "lib": ["ES2022", "dom"],
     "paths": {
       "@i18n/*": ["./src/i18n/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@theme/*": ["./src/theme/*"],
+      "@offline/*": ["./src/offline/*"]
     }
   },
   "angularCompilerOptions": {
