@@ -3,8 +3,8 @@
     {{ t("hello") }}
   </h1>
   <select name="lang" id="lang" (change)="changeLang($event)">
-    <option value="es">🇪🇸 Español</option>
-    <option value="en">🇬🇧 English</option>
+    <option value="es" [selected]="lang() === 'es'">🇪🇸 Español</option>
+    <option value="en" [selected]="lang() === 'en'">🇬🇧 English</option>
   </select>
   <select name="theme" id="theme" (change)="toggleTheme($event)">
     <option value="dark-theme" [selected]="theme() === 'dark-theme'">

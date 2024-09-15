@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoService, TranslocoModule } from '@jsverse/transloco';
-import { Theme } from '@theme/models/theme';
-import { ThemeService } from '@theme/services/theme.service';
+import { Theme } from '@theme/model/theme';
+import { ThemeService } from '@theme/domain/theme.service';
+import { LangService } from '@i18n/domain/lang.service';
+import { SupportedLangs } from '@i18n/model/langs.const';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +15,16 @@ import { ThemeService } from '@theme/services/theme.service';
 })
 export class AppComponent {
   title = 'notebook';
-  translocoService = inject(TranslocoService);
+  langService = inject(LangService);
   themeService = inject(ThemeService);
 
   theme = this.themeService.theme;
+  lang = this.langService.lang;
 
   changeLang(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const selectedLang = selectElement.value;
-    this.translocoService.setActiveLang(selectedLang);
+    this.langService.setActiveLang(selectedLang as SupportedLangs);
   }
 
   toggleTheme(event: Event) {

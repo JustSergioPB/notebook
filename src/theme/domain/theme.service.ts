@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Theme } from '@theme/models/theme';
+import { Theme } from '@theme/model/theme';
 
 @Injectable({
   providedIn: 'root',
