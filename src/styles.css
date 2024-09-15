@@ -2,3 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  --text-color: #222;
+  --background-color: #fff;
+}
+
+body.dark-theme {
+  --text-color: #fff;
+  --background-color: #222;
+}
+
+body {
+  background: var(--background-color);
+}
+
+h1,
+p {
+  color: var(--text-color);
+}

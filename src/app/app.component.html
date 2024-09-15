@@ -6,5 +6,13 @@
     <option value="es">🇪🇸 Español</option>
     <option value="en">🇬🇧 English</option>
   </select>
+  <select name="theme" id="theme" (change)="toggleTheme($event)">
+    <option value="dark-theme" [selected]="theme() === 'dark-theme'">
+      🌙 Dark
+    </option>
+    <option value="light-theme" [selected]="theme() === 'light-theme'">
+      🌞 Light
+    </option>
+    <option value="system" [selected]="theme() === 'system'">🖥️ System</option>
+  </select>
 </ng-container>
-
