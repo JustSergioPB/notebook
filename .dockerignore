@@ -1,0 +1,36 @@
+# Node modules
+node_modules
+
+# Angular build output
+/dist
+
+# npm debug logs
+npm-debug.log*
+
+# Git and version control
+.git
+.gitignore
+
+# Environment files
+.env
+.env.*
+
+# IDE files
+.idea
+.vscode
+*.swp
+*.swo
+
+# Testing files
+/coverage
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Angular specific
+.angular
+
+# Other unnecessary files
+*.md
+LICENSE
